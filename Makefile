@@ -34,7 +34,9 @@ test: test-bin
 test-bin: picohttpparser.c picotest/picotest.c test.c
 	$(CC) -Wall $(CFLAGS) $(LDFLAGS) -o $@ $^
 
-clean:
-	rm -f test-bin
+bench: bench.c picohttpparser.c
 
-.PHONY: test
+clean:
+	rm -f bench test-bin
+
+.PHONY: all clean test
